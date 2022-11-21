@@ -1,0 +1,1 @@
+start C:\Users\xeyte\source\repos\ProjectAlpha\ProjectAlpha\bin\Debug\bin\ProjectAlpha.exe

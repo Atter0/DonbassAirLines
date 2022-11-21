@@ -1,0 +1,155 @@
+﻿<Window x:Class="ProjectAlpha.RegistrWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectAlpha"
+        mc:Ignorable="d"
+        Title="RegistrWindow" Height="460" Width="560"
+        WindowStyle="None" ResizeMode="NoResize"  AllowsTransparency="true" Background="Transparent">
+    <Window.Resources>
+
+        <Style x:Key="AuthButtons" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="22,22,22,22"
+                                Background="{TemplateBinding Background}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF4397D4"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="MinimizedButton" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="0,00,0,0"
+                                Background="{TemplateBinding Background}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF577692"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="OrangeTex" TargetType="{x:Type TextBox}">
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="25"  />
+                </Style>
+            </Style.Resources>
+        </Style>
+        <Style x:Key="CloseButton" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="0,20,0,0"
+                                Background="{TemplateBinding Background}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFCE8787"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+    </Window.Resources>
+
+    <Border BorderThickness="1" CornerRadius="20">
+        <Border.Background>
+            <ImageBrush ImageSource="/Font2.jpg"/>
+        </Border.Background>
+        <Grid>
+            <Label Content="DONBASS&#xD;&#xA;.AIRLINES" HorizontalAlignment="Left" Margin="222,51,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="78" Width="193" FontSize="32" FontFamily="Copperplate Gothic Bold" FontWeight="Thin" Foreground="#FFDDDDDD">
+
+
+
+
+
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.611"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+
+            <Image Margin="146,56,330,334" Source="/logit.png" Stretch="Fill"/>
+            <Button x:Name="CloseButton2" Content="X" HorizontalAlignment="Left" Margin="517,0,0,0" VerticalAlignment="Top" Style="{StaticResource CloseButton }" Height="36" Width="41" Click="CloseButton2_Click"/>
+            <Button x:Name="MinButton" Content="___" HorizontalAlignment="Left" Margin="477,0,0,0" VerticalAlignment="Top" Height="36" Width="40" Style="{StaticResource MinimizedButton}" Click="MinButton_Click"/>
+            <Border x:Name="HightBord" BorderBrush="Black" BorderThickness="0" Background="#FFDDDDDD" Margin="0,0,81,422" CornerRadius="20,0,0,0" MouseMove="Border_MouseMove" MouseLeftButtonDown="Border_MouseLeftButtonDown" Grid.RowSpan="2"/>
+            <PasswordBox
+        x:Name="password"
+        Margin="113,298,113,0" RenderTransformOrigin="0.501,0.536" BorderBrush="White" FontWeight="Thin" Foreground="#FFFFFBFB" HorizontalContentAlignment="Center" FontSize="30" VerticalAlignment="Top" Height="52" MaxLength="26" >
+                <PasswordBox.Style>
+                    <Style TargetType="{x:Type PasswordBox}">
+                        <Style.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5" />
+                            </Style>
+                        </Style.Resources>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type PasswordBox}">
+                                    <Border x:Name="border" CornerRadius="25" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
+                                        <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border" Value="#FF7EB4EA"/>
+                                        </Trigger>
+                                        <Trigger Property="IsKeyboardFocused" Value="true">
+                                            <Setter Property="BorderBrush" TargetName="border" Value="#FF7EB4EA" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                                    <Condition Property="IsSelectionActive" Value="false"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                            </MultiTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </PasswordBox.Style>
+            </PasswordBox>
+            <TextBox x:Name="login" HorizontalAlignment="Center" Margin="0,162,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="332" Height="52" Style="{StaticResource OrangeTex}" Background="Transparent" FontSize="30" TextAlignment="Center" FontWeight="Thin" Foreground="White" MaxLength="26" BorderBrush="White"/>
+            <TextBox x:Name="email" Margin="0,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="332"  Height="52" Style="{StaticResource OrangeTex }" Background="Transparent" TextAlignment="Center" FontSize="30" FontWeight="Thin" Foreground="White" MaxLength="26" BorderBrush="White"/>
+            <Button Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="113,368,0,0" VerticalAlignment="Top" Style="{StaticResource AuthButtons}" Height="52" Width="198" Click="Button_Click_2"/>
+            <Button Content="Уже есть" HorizontalAlignment="Left" Margin="316,368,0,0" VerticalAlignment="Top" Style="{StaticResource AuthButtons}" Height="52" Width="129" Click="Button_Click"/>
+        </Grid>
+    </Border>
+</Window>
